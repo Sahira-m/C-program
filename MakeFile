@@ -1,0 +1,23 @@
+#compiler name
+cc :=gcc
+
+#remove command
+RM := rm -rf
+
+#source files
+SOURCES :=name.c
+
+#object files
+OBJS :=$(SOURCES:.c=.o)
+
+#main target
+name: $(OBJS)
+    $(CC) $^ -o $@
+
+%.o: %.c
+    $(CC) -c $< -o $@
+ 
+
+.PHONY: clean
+clean:
+    $(RM) *.o name
